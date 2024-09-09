@@ -24,6 +24,7 @@
         console.log(`- Start Time: ${startTime}`);
         console.log(`- End Time: ${endTime}`);
         console.log(`- Time Zone: ${timeZone}`);
+        console.log(`v2`);
 
         return { weekdays, startTime, endTime, timeZone };
     }
