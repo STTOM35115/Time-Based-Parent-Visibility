@@ -1,16 +1,15 @@
 (function() {
-    // Helper function to get URL parameters
-    function getUrlParams() {
-        console.log("Extracting URL parameters...");
+    // Helper function to get parameters from the script tag's data attributes
+    function getScriptParams() {
+        const scriptTag = document.currentScript;
 
-        const params = new URLSearchParams(window.location.search);
-        
-        const weekdays = params.get('weekdays') ? params.get('weekdays').split(',').map(Number) : [];
-        const startTime = params.get('starttime') || '00:00';
-        const endTime = params.get('endtime') || '23:59';
-        const timeZone = params.get('timezone') || 'UTC';  // Time zone parameter
+        // Retrieve data-* attributes from the script tag
+        const weekdays = scriptTag.getAttribute('data-weekdays') ? scriptTag.getAttribute('data-weekdays').split(',').map(Number) : [];
+        const startTime = scriptTag.getAttribute('data-starttime') || '00:00';
+        const endTime = scriptTag.getAttribute('data-endtime') || '23:59';
+        const timeZone = scriptTag.getAttribute('data-timezone') || 'UTC';  // Time zone parameter
 
-        console.log(`URL Params extracted:`);
+        console.log(`Script tag Params extracted:`);
         console.log(`- Weekdays: ${weekdays}`);
         console.log(`- Start Time: ${startTime}`);
         console.log(`- End Time: ${endTime}`);
@@ -59,7 +58,7 @@
     function controlParentVisibility() {
         console.log("Running controlParentVisibility()...");
 
-        const { weekdays, startTime, endTime, timeZone } = getUrlParams();
+        const { weekdays, startTime, endTime, timeZone } = getScriptParams();
         const parent = document.currentScript.parentElement;
 
         console.log(`Parent element:`, parent);
