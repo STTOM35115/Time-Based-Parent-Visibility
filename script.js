@@ -33,7 +33,7 @@ function checkElementVisibility() {
         const currentTimeStr = currentTime.toLocaleTimeString('en-US', options).replace(':', '');
 
         // Compare current time with the start and end times
-        if (currentTimeStr >= startTime && currentTimeStr <= endTime) {
+        if (currentTimeStr >= startTime && currentTimeStr < endTime) {
             // If within the visibility period, show the element
             element.style.display = enabledVisibility;
         } else {
