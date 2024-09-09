@@ -3,13 +3,13 @@
 
     // Helper function to get parameters from the script tag's data attributes
     function getScriptParams() {
-        // Check if scriptTag has been assigned already
+        // Get the script element by its ID or class
         if (!scriptTag) {
-            scriptTag = document.currentScript; // Capture the script tag reference during the first execution
+            scriptTag = document.getElementById('visibilityscript');  // Reference the script by its ID
         }
 
         if (!scriptTag) {
-            console.error("Could not find the script tag.");
+            console.error("Script tag not found.");
             return { weekdays: [], startTime: '00:00', endTime: '23:59', timeZone: 'UTC' };
         }
 
